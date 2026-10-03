@@ -1,0 +1,422 @@
+<title>Ruturaj Solanki</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,400&family=Instrument+Serif:ital@0;1&display=swap">
+<style>
+  /* Layout: single column, content-width prose, structural grid lines as design element */
+  :root {
+    --fg: #1c1c1a;
+    --fg-secondary: #5c5c58;
+    --fg-dim: #9a9a94;
+    --bg: #f6f5f0;
+    --bg-inset: #eeedea;
+    --accent: #2d5a3d;
+    --rule: #d4d3cc;
+
+    --font-display: 'Instrument Serif', 'Georgia', serif;
+    --font-mono: 'DM Mono', 'SF Mono', 'Consolas', monospace;
+    --font-body: 'DM Mono', 'SF Mono', monospace;
+
+    --measure: 640px;
+    --gutter: 20px;
+
+    color-scheme: light;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --fg: #e4e3de;
+      --fg-secondary: #a8a8a2;
+      --fg-dim: #6b6b66;
+      --bg: #131312;
+      --bg-inset: #1c1c1a;
+      --accent: #6db87f;
+      --rule: #2e2e2a;
+      color-scheme: dark;
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --fg: #e4e3de;
+    --fg-secondary: #a8a8a2;
+    --fg-dim: #6b6b66;
+    --bg: #131312;
+    --bg-inset: #1c1c1a;
+    --accent: #6db87f;
+    --rule: #2e2e2a;
+    color-scheme: dark;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: var(--font-body);
+    font-size: 13px;
+    line-height: 1.75;
+    color: var(--fg);
+    background: var(--bg);
+    padding-inline: var(--gutter);
+    -webkit-font-smoothing: antialiased;
+    font-weight: 300;
+  }
+
+  .page {
+    max-width: var(--measure);
+    margin: 0 auto;
+    padding-block: 5rem 6rem;
+  }
+
+  /* --- Header --- */
+  .header {
+    margin-bottom: 5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.4rem, 6vw, 3.6rem);
+    font-weight: 400;
+    line-height: 1.1;
+    text-wrap: balance;
+    color: var(--fg);
+    letter-spacing: -0.02em;
+  }
+
+  .header .tagline {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--fg-secondary);
+    margin-top: 0.75rem;
+  }
+
+  /* --- Sections --- */
+  .section {
+    margin-bottom: 4.5rem;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--fg-dim);
+    margin-bottom: 1.25rem;
+    display: block;
+  }
+
+  .section h2 {
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 400;
+    line-height: 1.25;
+    text-wrap: balance;
+    color: var(--fg);
+    margin-bottom: 1.25rem;
+  }
+
+  .section p {
+    color: var(--fg-secondary);
+    max-width: 56ch;
+    margin-bottom: 0.75rem;
+  }
+
+  .section p:last-child { margin-bottom: 0; }
+
+  /* --- Opening block --- */
+  .opening {
+    margin-bottom: 5rem;
+    padding-left: 1.5rem;
+    border-left: 2px solid var(--accent);
+  }
+
+  .opening p {
+    font-family: var(--font-display);
+    font-size: 1.35rem;
+    line-height: 1.6;
+    color: var(--fg);
+    font-style: italic;
+    max-width: 48ch;
+  }
+
+  /* --- Dividers --- */
+  .rule {
+    border: none;
+    border-top: 1px solid var(--rule);
+    margin-bottom: 4.5rem;
+  }
+
+  /* --- Projects --- */
+  .projects {
+    display: grid;
+    gap: 0;
+  }
+
+  .project {
+    padding: 1.75rem 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.5rem 2rem;
+    align-items: start;
+  }
+
+  .project:first-child {
+    padding-top: 0;
+  }
+
+  .project:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .project h3 {
+    font-family: var(--font-display);
+    font-size: 1.15rem;
+    font-weight: 400;
+    color: var(--fg);
+    grid-column: 1 / -1;
+  }
+
+  .project p {
+    color: var(--fg-secondary);
+    grid-column: 1;
+    max-width: 50ch;
+  }
+
+  .project .project-link {
+    grid-column: 2;
+    grid-row: 2;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--accent);
+    text-decoration: none;
+    white-space: nowrap;
+    align-self: start;
+    padding-top: 0.15rem;
+    transition: color 0.2s;
+  }
+
+  .project .project-link:hover {
+    color: var(--fg);
+  }
+
+  @media (max-width: 500px) {
+    .project {
+      grid-template-columns: 1fr;
+    }
+    .project .project-link {
+      grid-column: 1;
+      grid-row: auto;
+    }
+  }
+
+  /* --- Skills --- */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  @media (max-width: 440px) {
+    .skills-grid { grid-template-columns: 1fr; }
+  }
+
+  .skill-item {
+    padding: 0.6rem 0;
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--fg-secondary);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .skill-item::before {
+    content: '>';
+    color: var(--fg-dim);
+    margin-right: 0.5rem;
+    font-family: var(--font-mono);
+  }
+
+  .skills-grid .skill-item:nth-last-child(-n+2) {
+    border-bottom: none;
+  }
+
+  @media (max-width: 440px) {
+    .skills-grid .skill-item:nth-last-child(2) {
+      border-bottom: 1px solid var(--rule);
+    }
+    .skills-grid .skill-item:last-child {
+      border-bottom: none;
+    }
+  }
+
+  /* --- Connect --- */
+  .connect-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .connect-list li {
+    color: var(--fg-secondary);
+    font-size: 12px;
+  }
+
+  .connect-list a {
+    color: var(--accent);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .connect-list a:hover {
+    color: var(--fg);
+  }
+
+  .connect-arrow {
+    color: var(--fg-dim);
+    font-family: var(--font-mono);
+  }
+
+  /* --- Footer --- */
+  .footer {
+    margin-top: 5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .footer span {
+    font-size: 10px;
+    color: var(--fg-dim);
+    letter-spacing: 0.05em;
+  }
+
+  /* --- Background structural element --- */
+  .tree-annotation {
+    font-family: var(--font-mono);
+    font-size: 10px;
+    color: var(--fg-dim);
+    letter-spacing: 0.02em;
+    margin-bottom: 3rem;
+    opacity: 0.7;
+    line-height: 1.6;
+    user-select: none;
+  }
+
+  .tree-annotation .branch {
+    padding-left: 1.5rem;
+  }
+
+  .tree-annotation .leaf {
+    padding-left: 3rem;
+  }
+</style>
+
+<div class="page">
+
+  <header class="header">
+    <h1>Ruturaj Solanki</h1>
+    <p class="tagline">Builder, thinker, maker of things that work.</p>
+  </header>
+
+  <div class="tree-annotation" aria-hidden="true">
+    <div>ruturaj-solanki/</div>
+    <div class="branch">├── what-i-do</div>
+    <div class="branch">├── philosophy</div>
+    <div class="branch">├── projects/</div>
+    <div class="leaf">│   ├── synexiom-labs</div>
+    <div class="leaf">│   ├── nodiom</div>
+    <div class="leaf">│   ├── data-analytics</div>
+    <div class="leaf">│   └── early-experiments</div>
+    <div class="branch">├── background</div>
+    <div class="branch">├── skills</div>
+    <div class="branch">└── connect</div>
+  </div>
+
+  <div class="opening">
+    <p>Not everything that works is understood.<br>
+    Not everything understood is useful.<br>
+    I chase the overlap.</p>
+  </div>
+
+  <section class="section">
+    <span class="section-label">What I Do</span>
+    <p>I build software that thinks — AI systems, data pipelines, and the tools that connect them.</p>
+    <p>From structured document engines to intelligent agents, I work at the boundary between what machines can parse and what humans actually mean.</p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Philosophy</span>
+    <p>Most problems aren't technical. They're structural — the wrong abstraction, the wrong boundary, the wrong question asked too late.</p>
+    <p>I believe in building small, understanding deeply, and shipping things that survive contact with reality.</p>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section">
+    <span class="section-label">Projects</span>
+    <div class="projects">
+      <div class="project">
+        <h3>Synexiom Labs</h3>
+        <p>An AI research lab exploring the architecture of machine reasoning. We build tools that treat structure as a first-class citizen.</p>
+        <a class="project-link" href="https://synexiomlabs.com">explore &rarr;</a>
+      </div>
+      <div class="project">
+        <h3>Nodiom</h3>
+        <p>Address any node in your Markdown. A structured read/write engine that treats documents as queryable trees — built for AI agents that need to read and write reliably.</p>
+        <a class="project-link" href="https://github.com/Synexiom-Labs/nodiom">github &rarr;</a>
+      </div>
+      <div class="project">
+        <h3>Data &amp; Analytics</h3>
+        <p>Post-graduate work in data analysis for business. Built predictive models, dashboards, and data pipelines that turned raw numbers into decisions.</p>
+      </div>
+      <div class="project">
+        <h3>Early Experiments</h3>
+        <p>Where it all started — from heart disease detection with ensemble learning, to a voice assistant prototype, to a blockchain project built from curiosity. Every project taught something the next one needed.</p>
+      </div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section">
+    <span class="section-label">Background</span>
+    <p>Computer Science from R.N.G. Patel Institute of Technology. Data Analytics from St. Clair College, Canada.</p>
+    <p>I went from writing Java assignments to building AI research tools — not because of a plan, but because every interesting problem led to the next one.</p>
+  </section>
+
+  <section class="section">
+    <span class="section-label">Skills</span>
+    <div class="skills-grid">
+      <div class="skill-item">Python</div>
+      <div class="skill-item">JavaScript / TypeScript</div>
+      <div class="skill-item">AI &amp; Machine Learning</div>
+      <div class="skill-item">Data Analytics &amp; Visualization</div>
+      <div class="skill-item">Node.js Ecosystem</div>
+      <div class="skill-item">Markdown &amp; Structured Content</div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <section class="section">
+    <span class="section-label">Connect</span>
+    <p>I'm always interested in conversations about AI architecture, structured content, and tools that make thinking clearer.</p>
+    <ul class="connect-list">
+      <li>Email <span class="connect-arrow">&rarr;</span> <a href="mailto:ruturaaj@synexiomlabs.com">ruturaaj@synexiomlabs.com</a></li>
+      <li>GitHub <span class="connect-arrow">&rarr;</span> <a href="https://github.com/Robo-Codes">Robo-Codes</a></li>
+      <li>LinkedIn <span class="connect-arrow">&rarr;</span> <a href="https://linkedin.com/in/ruturaj-solanki">Ruturaj Solanki</a></li>
+    </ul>
+  </section>
+
+  <footer class="footer">
+    <span>Built with Nodiom</span>
+    <span>Structured content, rendered to HTML</span>
+  </footer>
+
+</div>

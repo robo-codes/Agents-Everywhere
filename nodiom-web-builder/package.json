@@ -1,0 +1,17 @@
+{
+  "name": "nodiom-web-builder",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "build": "node build-site.js",
+    "test-nodiom": "node test-nodiom.js"
+  },
+  "keywords": [],
+  "author": "Ruturaj Solanki",
+  "license": "ISC",
+  "description": "Test Nodiom capabilities by building a personal website",
+  "dependencies": {
+    "@synexiom-labs/nodiom": "^0.3.0"
+  }
+}
